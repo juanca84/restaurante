@@ -7,6 +7,11 @@ ActiveSupport::Inflector.inflections(:en) do |inflect|
 #   inflect.plural /^(ox)$/i, '\1en'
 #   inflect.singular /^(ox)en/i, '\1'
   inflect.irregular 'restaurante', 'restaurantes'
+  inflect.irregular 'mesa', 'mesas'
+  inflect.irregular 'cliente', 'clientes'
+  inflect.irregular 'menu', 'menus'
+  inflect.irregular 'pedido', 'pedidos'
+  inflect.irregular 'detalle_pedido', 'detalle_pedidos'
 #   inflect.uncountable %w( fish sheep )
 end
 

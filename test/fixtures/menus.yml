@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  codigo: MyString
+  nombre: MyString
+  precio: 9.99
+  restaurante: one
+
+two:
+  codigo: MyString
+  nombre: MyString
+  precio: 9.99
+  restaurante: two
