@@ -1,0 +1,16 @@
+%p#notice= notice
+%p
+  %strong Numero:
+  = @pedido.numero
+%p
+  %strong Total:
+  = @pedido.total
+%p
+  %strong Mesa:
+  = @pedido.mesa
+%p
+  %strong Cliente:
+  = @pedido.cliente
+= link_to 'Edit', edit_pedido_path(@pedido)
+|
+= link_to 'Back', pedidos_path

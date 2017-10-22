@@ -1,0 +1,20 @@
+%p#notice= notice
+%h1 Clientes
+%table
+  %thead
+    %tr
+      %th Nit
+      %th Nombre
+      %th Restaurante
+      %th{:colspan => "3"}
+  %tbody
+    - @clientes.each do |cliente|
+      %tr
+        %td= cliente.nit
+        %td= cliente.nombre
+        %td= cliente.restaurante
+        %td= link_to 'Show', cliente
+        %td= link_to 'Edit', edit_cliente_path(cliente)
+        %td= link_to 'Destroy', cliente, method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to 'New Cliente', new_cliente_path

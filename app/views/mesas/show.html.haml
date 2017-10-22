@@ -1,0 +1,10 @@
+%p#notice= notice
+%p
+  %strong Numero:
+  = @mesa.numero
+%p
+  %strong Restaurante:
+  = @mesa.restaurante
+= link_to 'Edit', edit_mesa_path(@mesa)
+|
+= link_to 'Back', mesas_path

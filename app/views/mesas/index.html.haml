@@ -1,0 +1,18 @@
+%p#notice= notice
+%h1 Mesas
+%table
+  %thead
+    %tr
+      %th Numero
+      %th Restaurante
+      %th{:colspan => "3"}
+  %tbody
+    - @mesas.each do |mesa|
+      %tr
+        %td= mesa.numero
+        %td= mesa.restaurante
+        %td= link_to 'Show', mesa
+        %td= link_to 'Edit', edit_mesa_path(mesa)
+        %td= link_to 'Destroy', mesa, method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to 'New Mesa', new_mesa_path

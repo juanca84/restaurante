@@ -1,0 +1,13 @@
+%p#notice= notice
+%p
+  %strong Nit:
+  = @cliente.nit
+%p
+  %strong Nombre:
+  = @cliente.nombre
+%p
+  %strong Restaurante:
+  = @cliente.restaurante
+= link_to 'Edit', edit_cliente_path(@cliente)
+|
+= link_to 'Back', clientes_path

@@ -1,0 +1,22 @@
+%p#notice= notice
+%h1 Pedidos
+%table
+  %thead
+    %tr
+      %th Numero
+      %th Total
+      %th Mesa
+      %th Cliente
+      %th{:colspan => "3"}
+  %tbody
+    - @pedidos.each do |pedido|
+      %tr
+        %td= pedido.numero
+        %td= pedido.total
+        %td= pedido.mesa
+        %td= pedido.cliente
+        %td= link_to 'Show', pedido
+        %td= link_to 'Edit', edit_pedido_path(pedido)
+        %td= link_to 'Destroy', pedido, method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to 'New Pedido', new_pedido_path

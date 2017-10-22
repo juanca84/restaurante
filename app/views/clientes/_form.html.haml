@@ -1,0 +1,20 @@
+= form_with(model: cliente, local: true) do |form|
+  - if cliente.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(cliente.errors.count, "error")
+        prohibited this cliente from being saved:
+      %ul
+        - cliente.errors.full_messages.each do |message|
+          %li= message
+  .field
+    = form.label :nit
+    = form.text_field :nit, id: :cliente_nit
+  .field
+    = form.label :nombre
+    = form.text_field :nombre, id: :cliente_nombre
+  .field
+    = form.label :restaurante_id
+    = form.select :restaurante_id, options_from_collection_for_select(Restaurante.all, 'id', 'nombre')
+  .actions
+    = form.submit

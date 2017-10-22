@@ -1,0 +1,10 @@
+%p#notice= notice
+%p
+  %strong Pedido:
+  = @detalle_pedido.pedido
+%p
+  %strong Menu:
+  = @detalle_pedido.menu
+= link_to 'Edit', edit_detalle_pedido_path(@detalle_pedido)
+|
+= link_to 'Back', detalle_pedidos_path

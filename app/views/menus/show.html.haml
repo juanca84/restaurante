@@ -1,0 +1,16 @@
+%p#notice= notice
+%p
+  %strong Codigo:
+  = @menu.codigo
+%p
+  %strong Nombre:
+  = @menu.nombre
+%p
+  %strong Precio:
+  = @menu.precio
+%p
+  %strong Restaurante:
+  = @menu.restaurante
+= link_to 'Edit', edit_menu_path(@menu)
+|
+= link_to 'Back', menus_path

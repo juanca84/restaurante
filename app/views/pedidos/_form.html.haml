@@ -1,0 +1,23 @@
+= form_with(model: pedido, local: true) do |form|
+  - if pedido.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(pedido.errors.count, "error")
+        prohibited this pedido from being saved:
+      %ul
+        - pedido.errors.full_messages.each do |message|
+          %li= message
+  .field
+    = form.label :numero
+    = form.number_field :numero, id: :pedido_numero
+  .field
+    = form.label :total
+    = form.text_field :total, id: :pedido_total
+  .field
+    = form.label :mesa_id
+    = form.select :mesa_id, options_from_collection_for_select(Mesa.all, 'id', 'numero')
+  .field
+    = form.label :cliente
+    = form.select :cliente_id, options_from_collection_for_select(Cliente.all, 'id', 'nombre')
+  .actions
+    = form.submit
