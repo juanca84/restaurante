@@ -18,7 +18,7 @@
                 %td= pedido.numero
                 %td= pedido.mesa_numero
                 %td= pedido.cliente_nombre
-                %td= pedido.total
+                %td= formato_bs(pedido.total)
                 %td
                   - if pedido.atendido?
                     %button.btn.btn-success.btn-sm{:type => "button"} #{ pedido.estado }
