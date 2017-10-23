@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   resources :detalle_pedidos
-  resources :pedidos
+  resources :pedidos do
+    member do
+      get :atender
+    end
+  end
   resources :menus
   resources :clientes
   resources :mesas

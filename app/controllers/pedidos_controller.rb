@@ -4,7 +4,7 @@ class PedidosController < ApplicationController
   # GET /pedidos
   # GET /pedidos.json
   def index
-    @pedidos = Pedido.all
+    @pedidos = Pedido.all.order('estado DESC, numero DESC')
   end
 
   # GET /pedidos/1
@@ -57,6 +57,15 @@ class PedidosController < ApplicationController
     @pedido.destroy
     respond_to do |format|
       format.html { redirect_to pedidos_url, notice: 'Pedido was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+
+  def atender
+    @pedido = Pedido.find (params[:id])
+    @pedido.atender
+    respond_to do |format|
+      format.html { redirect_to pedidos_url, notice: 'Pedido fue atendido.' }
       format.json { head :no_content }
     end
   end

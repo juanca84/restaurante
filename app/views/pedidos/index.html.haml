@@ -1,22 +1,33 @@
-%p#notice= notice
-%h1 Pedidos
-%table
-  %thead
-    %tr
-      %th Numero
-      %th Total
-      %th Mesa
-      %th Cliente
-      %th{:colspan => "3"}
-  %tbody
-    - @pedidos.each do |pedido|
-      %tr
-        %td= pedido.numero
-        %td= pedido.total
-        %td= pedido.mesa
-        %td= pedido.cliente
-        %td= link_to 'Show', pedido
-        %td= link_to 'Edit', edit_pedido_path(pedido)
-        %td= link_to 'Destroy', pedido, method: :delete, data: { confirm: 'Are you sure?' }
+.container-fluid
+  .row
+    %main.col-sm-9.ml-sm-auto.col-md-12.pt-3{:role => "main"}
+      %h1 Pedidos
+      .table-responsive
+        %table.table.table-striped
+          %thead
+            %tr
+              %th #
+              %th Mesa
+              %th Cliente
+              %th Precio
+              %th Estado
+              %th Acciones
+          %tbody
+            - @pedidos.each do |pedido|
+              %tr
+                %td= pedido.numero
+                %td= pedido.mesa_numero
+                %td= pedido.cliente_nombre
+                %td= pedido.total
+                %td
+                  - if pedido.atendido?
+                    %button.btn.btn-success.btn-sm{:type => "button"} #{ pedido.estado }
+                  - else
+                    %button.btn.btn-danger.btn-sm{:type => "button"} #{pedido.estado}
+                %td
+                  = link_to 'Mostrar', pedido, class: 'btn btn-primary btn-sm'
+                  - if pedido.solicitado?
+                    = link_to 'Atender', atender_pedido_path(pedido), class: 'btn btn-info btn-sm'
+
 %br/
-= link_to 'New Pedido', new_pedido_path
+= link_to 'Nuevo Pedido', new_pedido_path, class: 'btn btn-primary'

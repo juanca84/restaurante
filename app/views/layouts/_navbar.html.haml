@@ -1,11 +1,15 @@
-%ul
-  %li
-    %a{:href => restaurantes_path } Restaurantes
-  %li
-    %a{:href => mesas_path } Mesas
-  %li
-    %a{:href => clientes_path } clientes
-  %li
-    %a{:href => menus_path } Menus
-  %li
-    %a{:href => pedidos_path } Pedidos
+%header.header.clearfix
+  %nav
+    %ul.nav.nav-pills.float-right
+      %li.nav-item
+        %a.nav-link{ :href => pedidos_path } Pedidos
+      %li.nav-item
+        %a.nav-link{ :href => clientes_path } clientes
+      %li.nav-item
+        %a.nav-link{ :href => menus_path } Menus
+      %li.nav-item
+        %a.nav-link{ :href => mesas_path } Mesas
+      %li.nav-item
+        %a.nav-link.active{ :href => restaurantes_path } Restaurantes
+
+  %h3.text-muted Restaurantes
