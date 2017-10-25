@@ -1,10 +1,12 @@
+%h2 Restaurante
 %p#notice= notice
+
 %p
   %strong Nit:
   = @restaurante.nit
 %p
-  %strong Nombre:
+  %strong Restaurante:
   = @restaurante.nombre
-= link_to 'Edit', edit_restaurante_path(@restaurante)
+= link_to 'Editar', edit_restaurante_path(@restaurante)
 |
-= link_to 'Back', restaurantes_path
+= link_to 'Atrás', restaurantes_path

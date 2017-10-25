@@ -1,3 +1,5 @@
+%h2 Cliente
+
 %p#notice= notice
 %p
   %strong Nit:
@@ -7,7 +9,8 @@
   = @cliente.nombre
 %p
   %strong Restaurante:
-  = @cliente.restaurante
-= link_to 'Edit', edit_cliente_path(@cliente)
+  = link_to @cliente.restaurante_nombre, restaurante_path(@cliente.restaurante.id)
+
+= link_to 'Editar', edit_cliente_path(@cliente)
 |
-= link_to 'Back', clientes_path
+= link_to 'Atrás', clientes_path

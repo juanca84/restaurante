@@ -11,8 +11,8 @@
       %tr
         %td= restaurante.nit
         %td= restaurante.nombre
-        %td= link_to 'Show', restaurante
-        %td= link_to 'Edit', edit_restaurante_path(restaurante)
-        %td= link_to 'Destroy', restaurante, method: :delete, data: { confirm: 'Are you sure?' }
+        %td= link_to 'Mostrar', restaurante, class: 'btn btn-primary btn-sm'
+        %td= link_to 'Editar', edit_restaurante_path(restaurante), class: 'btn btn-info btn-sm'
+        %td= link_to 'Eliminar', restaurante, class: 'btn btn-danger btn-sm', method: :delete, data: { confirm: '¿Estas seguro?' }
 %br/
-= link_to 'New Restaurante', new_restaurante_path
+= link_to 'Nuevo Restaurante', new_restaurante_path, class: 'btn btn-primary'

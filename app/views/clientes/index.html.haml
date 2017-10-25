@@ -1,20 +1,25 @@
 %p#notice= notice
-%h1 Clientes
-%table
-  %thead
-    %tr
-      %th Nit
-      %th Nombre
-      %th Restaurante
-      %th{:colspan => "3"}
-  %tbody
-    - @clientes.each do |cliente|
-      %tr
-        %td= cliente.nit
-        %td= cliente.nombre
-        %td= cliente.restaurante
-        %td= link_to 'Show', cliente
-        %td= link_to 'Edit', edit_cliente_path(cliente)
-        %td= link_to 'Destroy', cliente, method: :delete, data: { confirm: 'Are you sure?' }
-%br/
-= link_to 'New Cliente', new_cliente_path
+.container-fluid
+  .row
+    %main.col-sm-9.ml-sm-auto.col-md-12.pt-3{:role => "main"}
+      %h1 Clientes
+      .table-responsive
+        %table.table.table-striped
+          %thead
+            %tr
+              %th NIT
+              %th Nombre
+              %th Restaurante
+              %th Acciones
+          %tbody
+            - @clientes.each do |cliente|
+              %tr
+                %td= cliente.nit
+                %td= cliente.nombre
+                %td= link_to cliente.restaurante_nombre, restaurante_path(cliente.restaurante.id)
+                %td
+                  = link_to 'Mostrar', cliente, class: 'btn btn-primary btn-sm'
+                  = link_to 'Editar', edit_cliente_path(cliente), class: 'btn btn-info btn-sm'
+                  = link_to 'Eliminar', cliente, class: 'btn btn-danger btn-sm', method: :delete, data: { confirm: '¿Estas seguro?' }
+
+= link_to 'Nuevo Cliente', new_cliente_path, class: 'btn btn-primary'

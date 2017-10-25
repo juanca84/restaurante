@@ -1,10 +1,15 @@
+%h2 Mesa
 %p#notice= notice
 %p
   %strong Numero:
   = @mesa.numero
 %p
   %strong Restaurante:
-  = @mesa.restaurante
-= link_to 'Edit', edit_mesa_path(@mesa)
+  = link_to @mesa.restaurante_nombre, restaurante_path(@mesa.restaurante.id)
+%p
+  %strong QR:
+  .qr
+    = raw @qr.as_html
+= link_to 'Editar', edit_mesa_path(@mesa)
 |
-= link_to 'Back', mesas_path
+= link_to 'Atrás', mesas_path

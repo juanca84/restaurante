@@ -1,3 +1,5 @@
+%h2 Menú
+
 %p#notice= notice
 %p
   %strong Codigo:
@@ -10,7 +12,8 @@
   = @menu.precio
 %p
   %strong Restaurante:
-  = @menu.restaurante
-= link_to 'Edit', edit_menu_path(@menu)
+  = link_to @menu.restaurante_nombre, restaurante_path(@menu.restaurante.id)
+
+= link_to 'Editar', edit_menu_path(@menu)
 |
-= link_to 'Back', menus_path
+= link_to 'Atrás', menus_path

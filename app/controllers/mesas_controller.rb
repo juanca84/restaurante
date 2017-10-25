@@ -10,6 +10,8 @@ class MesasController < ApplicationController
   # GET /mesas/1
   # GET /mesas/1.json
   def show
+    require 'rqrcode'
+    @qr = RQRCode::QRCode.new("#{@mesa.restaurante_id}|#{@mesa.id}", size: 2, level: :h)
   end
 
   # GET /mesas/new
