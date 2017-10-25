@@ -62,3 +62,5 @@ gem 'jquery-rails'
 gem 'byebug'
 
 gem 'responders'
+
+gem 'rqrcode'

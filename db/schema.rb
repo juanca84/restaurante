@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171022141939) do
+ActiveRecord::Schema.define(version: 20171025000232) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 20171022141939) do
     t.bigint "restaurante_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "qr"
     t.index ["restaurante_id"], name: "index_mesas_on_restaurante_id"
   end
 
