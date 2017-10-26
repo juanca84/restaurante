@@ -30,6 +30,14 @@ class Pedido < ApplicationRecord
     cliente.nombre || 'NN'
   end
 
+  def calcular_total
+    total = 0
+    detalle_pedidos.each do |detalle_pedido|
+      total += detalle_pedido.menu.precio * detalle_pedido.cantidad
+    end
+    update_attributes(total: total)
+  end
+
   private
 
   def asignar_numero

@@ -2,14 +2,14 @@
   %nav
     %ul.nav.nav-pills.float-right
       %li.nav-item
-        %a.nav-link{ :href => pedidos_path } Pedidos
+        %a.nav-link{ href: pedidos_path, class: params[:controller] == 'pedidos' ? 'active' : ''  } Pedidos
       %li.nav-item
-        %a.nav-link{ :href => clientes_path } Clientes
+        %a.nav-link{ href: clientes_path, class: params[:controller] == 'clientes' ? 'active' : ''  } Clientes
       %li.nav-item
-        %a.nav-link{ :href => menus_path } Menus
+        %a.nav-link{ href: menus_path, class: params[:controller] == 'menus' ? 'active' : ''  } Menus
       %li.nav-item
-        %a.nav-link{ :href => mesas_path } Mesas
+        %a.nav-link{ href: mesas_path, class: params[:controller] == 'mesas' ? 'active' : '' } Mesas
       %li.nav-item
-        %a.nav-link.active{ :href => restaurantes_path } Restaurantes
+        %a.nav-link{ href: restaurantes_path, class: params[:controller] == 'restaurantes' ? 'active' : '' } Restaurantes
 
   %h3.text-muted Restaurantes

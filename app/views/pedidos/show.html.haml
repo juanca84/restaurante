@@ -1,16 +1,45 @@
+%h1 Pedido ##{@pedido.numero}
 %p#notice= notice
 %p
-  %strong Numero:
-  = @pedido.numero
-%p
-  %strong Total:
-  = @pedido.total
+  %strong Restaurante:
+  = link_to @pedido.mesa.restaurante_nombre, restaurante_path(@pedido.mesa.restaurante_id)
 %p
   %strong Mesa:
-  = @pedido.mesa
+  = link_to @pedido.mesa_numero, mesa_path(@pedido.mesa.id)
 %p
   %strong Cliente:
-  = @pedido.cliente
-= link_to 'Edit', edit_pedido_path(@pedido)
-|
-= link_to 'Back', pedidos_path
+  = link_to @pedido.cliente_nombre, cliente_path(@pedido.cliente.id)
+%p
+  %strong Total:
+  %strong
+    = formato_bs(@pedido.total)
+.container-fluid
+  .row
+    %main.col-sm-9.ml-sm-auto.col-md-12.pt-3{:role => "main"}
+      %h1 Detalle Pedido
+      .table-responsive
+        %table.table.table-striped
+          %thead
+            %tr
+              %th Código Menú
+              %th Nombre
+              %th Precio
+              %th Cantidad
+              %th Sub-total
+          %tbody
+            - total = 0
+            - @pedido.detalle_pedidos.each do |detalle_pedido|
+              %tr
+                %td= detalle_pedido.menu.codigo
+                %td= detalle_pedido.menu.nombre
+                %td= formato_bs(detalle_pedido.menu.precio)
+                %td= detalle_pedido.cantidad
+                - subtotal = detalle_pedido.menu.precio * detalle_pedido.cantidad
+                - total += subtotal
+                %td= formato_bs(subtotal)
+            %tr
+              %td{colspan: 4}
+                %strong Total
+              %td
+                %strong= formato_bs(total)
+= link_to 'Atrás', pedidos_path
