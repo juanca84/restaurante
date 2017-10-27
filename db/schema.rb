@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 20171026025915) do
 
   create_table "pedidos", force: :cascade do |t|
     t.integer "numero"
-    t.decimal "total"
+    t.decimal "total", default: "0.0"
     t.bigint "mesa_id"
     t.bigint "cliente_id"
     t.datetime "created_at", null: false

@@ -10,18 +10,27 @@ module Api
       end
 
       def create
-        if params[:pedido].present?
-          detalle_pedidos = params[:pedido].extract!(:detalle_pedidos)
-          pedido = Pedido.create!(params[:pedido])
-          DetallePedido.crear_detalles(pedido.id, detalle_pedidos)
-          respond_with respuesta: 'true'
+        @pedido = Pedido.new(pedido_params.to_hash)
+        if @pedido.save
+          DetallePedido.crear_detalles(@pedido.id, detalle_pedido_params.map(&:to_hash))
+          render json: @pedido
         else
-          respond_with 'false'
+          render json: @pedido.errors
         end
       end
 
       def update
         respond_with Cliente.all
+      end
+
+      private
+
+      def pedido_params
+        params.require(:pedido).permit(:cliente_id, :mesa_id)
+      end
+
+      def detalle_pedido_params
+        params.require(:detalle_pedido).map { |d| d.permit(:menu_id, :cantidad) }
       end
     end
   end

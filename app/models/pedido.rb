@@ -1,6 +1,7 @@
 class Pedido < ApplicationRecord
   belongs_to :mesa
-  belongs_to :cliente
+  belongs_to :cliente, optional: true
+
   has_many :detalle_pedidos
 
   scope :recientes, -> { order('numero DESC') }
@@ -27,7 +28,7 @@ class Pedido < ApplicationRecord
   end
 
   def cliente_nombre
-    cliente.nombre || 'NN'
+    cliente.present? ? cliente.nombre : 'NN'
   end
 
   def calcular_total
