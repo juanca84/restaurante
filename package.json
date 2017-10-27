@@ -1,5 +1,23 @@
 {
   "name": "restaurant",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "hogan": "^1.0.2"
+  },
+  "description": "Sistema para recibir pedidos de comida de un restaurante.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "git+https://github.com/juanca84/restaurante.git",
+  "author": "Juan Carlos Condori Machicado <jcondori@agetic.gob.bo>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/juanca84/restaurante/issues"
+  },
+  "homepage": "https://github.com/juanca84/restaurante#readme"
 }

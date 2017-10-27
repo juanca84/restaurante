@@ -46,3 +46,11 @@
               %td
                 %strong= formato_bs(total)
 = link_to 'Atrás', pedidos_path
+
+#timeline
+  / load more button
+  %button {{message}}
+  / tweet object
+  {{#tweets}}
+  {{> tweet}}
+  {{/tweets}}
