@@ -10,9 +10,10 @@ module Api
       end
 
       def create
-        @pedido = Pedido.new(pedido_params.to_hash)
+        puts params
+        @pedido = Pedido.new(eval(params[:pedido]))
         if @pedido.save
-          DetallePedido.crear_detalles(@pedido.id, detalle_pedido_params.map(&:to_hash))
+          DetallePedido.crear_detalles(@pedido.id, eval('[' + params[:detalle_pedido][0] + ']'))
           render json: @pedido
         else
           render json: @pedido.errors
@@ -26,11 +27,11 @@ module Api
       private
 
       def pedido_params
-        params.require(:pedido).permit(:cliente_id, :mesa_id)
+        params.require(:pedido)
       end
 
       def detalle_pedido_params
-        params.require(:detalle_pedido).map { |d| d.permit(:menu_id, :cantidad) }
+        params.require(:detalle_pedido)
       end
     end
   end
