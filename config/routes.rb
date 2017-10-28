@@ -16,6 +16,7 @@ Rails.application.routes.draw do
       resources :menus, only: :index
       resources :clientes, only: :index
       resources :pedidos, only: [:index, :create, :update]
+      match '/pedidos' => "pedidos#create", via: :options
     end
   end
 end
