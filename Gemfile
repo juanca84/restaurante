@@ -64,3 +64,5 @@ gem 'byebug'
 gem 'responders'
 
 gem 'rqrcode'
+
+gem 'rack-cors'
